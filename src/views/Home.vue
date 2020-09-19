@@ -1,17 +1,25 @@
 <template>
   <div>
     <SalutationName
-      v-model:salutation="form.salutation"
-      v-model:name="form.name"
+      v-model:salutation.capitalize="form.salutation"
+      v-model:name.capitalize="form.name"
     />
     <pre>{{ form }}</pre>
 
     <br />
 
     <base-input v-model:modelValue="myInput" />
-    <pre>
-      {{ myInput }}
-    </pre>
+    <pre>{{ myInput }}</pre>
+
+    <br />
+
+    <input type="text" v-model.lazy="message" />
+    <pre>{{ message }}</pre>
+
+    <br />
+
+    <input type="number" v-model.number="number" />
+    <pre>{{ number }}</pre>
   </div>
 </template>
 
@@ -28,6 +36,8 @@ export default {
   setup() {
     const state = reactive({
       myInput: "",
+      message: "",
+      number: "",
       form: {
         salutation: "",
         name: "",
@@ -37,3 +47,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+input {
+  width: 50%;
+}
+</style>
