@@ -1,23 +1,32 @@
 <template>
   <div>
-    <SalutationName
+    <p>Salutation Name</p>
+    <salutation-name
       v-model:salutation.capitalize="form.salutation"
       v-model:name.capitalize="form.name"
     />
     <pre>{{ form }}</pre>
 
     <br />
-
-    <base-input v-model:modelValue="myInput" />
-    <pre>{{ myInput }}</pre>
+    <p>Base Input</p>
+    <base-input
+      v-model:modelValue="email"
+      @blur="email = 'blurrr@its.cold'"
+      label="Email:"
+      type="email"
+      class="thicc"
+    />
+    <pre>{{ email }}</pre>
 
     <br />
 
+    <p>Input with lazy v-model modifier</p>
     <input type="text" v-model.lazy="message" />
     <pre>{{ message }}</pre>
 
     <br />
 
+    <p>Input with number v-model modifier</p>
     <input type="number" v-model.number="number" />
     <pre>{{ number }}</pre>
   </div>
@@ -35,13 +44,13 @@ export default {
   },
   setup() {
     const state = reactive({
-      myInput: "",
-      message: "",
-      number: "",
       form: {
         salutation: "",
         name: "",
       },
+      email: "",
+      message: "",
+      number: "",
     });
     return { ...toRefs(state) };
   },
