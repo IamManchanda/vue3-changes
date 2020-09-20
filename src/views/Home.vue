@@ -1,35 +1,33 @@
 <template>
-  <div>
-    <p>Salutation Name</p>
-    <salutation-name
-      v-model:salutation.capitalize="form.salutation"
-      v-model:name.capitalize="form.name"
-    />
-    <pre>{{ form }}</pre>
+  <p>Salutation Name</p>
+  <salutation-name
+    v-model:salutation.capitalize="form.salutation"
+    v-model:name.capitalize="form.name"
+  />
+  <pre>{{ form }}</pre>
 
-    <br />
-    <p>Base Input</p>
-    <base-input
-      v-model:modelValue="email"
-      @blur="email = 'blurrr@its.cold'"
-      label="Email:"
-      type="email"
-      class="thicc"
-    />
-    <pre>{{ email }}</pre>
+  <br />
+  <p>Base Input</p>
+  <base-input
+    v-model="email"
+    @blur="email = 'blurrr@its.cold'"
+    label="Email:"
+    type="email"
+    class="thicc"
+  />
+  <pre>{{ email }}</pre>
 
-    <br />
+  <br />
 
-    <p>Input with lazy v-model modifier</p>
-    <input type="text" v-model.lazy="message" />
-    <pre>{{ message }}</pre>
+  <p>Input with lazy v-model modifier</p>
+  <input type="text" v-model.lazy="message" />
+  <pre>{{ message }}</pre>
 
-    <br />
+  <br />
 
-    <p>Input with number v-model modifier</p>
-    <input type="number" v-model.number="number" />
-    <pre>{{ number }}</pre>
-  </div>
+  <p>Input with number v-model modifier</p>
+  <input type="number" v-model.number="number" />
+  <pre>{{ number }}</pre>
 </template>
 
 <script>

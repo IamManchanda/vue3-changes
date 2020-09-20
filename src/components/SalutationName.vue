@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <select name="salutation" @input="updateSalutation">
-      <option value="">-</option>
-      <option
-        v-for="item of salutations"
-        :value="item"
-        :key="item"
-        :selected="salutation === item"
-      >
-        {{ item }}
-      </option>
-    </select>
-    <input @input="updateName" :value="name" type="text" name="name" />
-  </div>
+  <select name="salutation" @input="updateSalutation">
+    <option value="">-</option>
+    <option
+      v-for="item of salutations"
+      :value="item"
+      :key="item"
+      :selected="salutation === item"
+    >
+      {{ item }}
+    </option>
+  </select>
+  <input @input="updateName" :value="name" type="text" name="name" />
 </template>
 
 <script>
